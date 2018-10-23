@@ -5,10 +5,23 @@
  */
 package sistema;
 
+import java.awt.Container;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 /**
  *
  * @author james
  */
-public class inicio {
+public class inicio extends JFrame{
+   private JButton boton1,boton2;
+   private Container panel;
+    public inicio(){
+        panel=this.getContentPane();
+        this.setSize(600,400);
+        this.setLayout(null);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+    }
     
 }
