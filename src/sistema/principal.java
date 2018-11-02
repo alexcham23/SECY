@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sistema;
-
+import lista_doble.Listadoblecircular;
 /**
  *
  * @author james
@@ -37,8 +37,17 @@ package sistema;
         
     }*/
 public class principal {
+  
     public static void main(String[] args) {
         bienvenida fg =new bienvenida();
         fg.setVisible(true);
-    }
+       String nombre="Jaime Amira";
+       String nombre2="oscar corleto";
+       int n=21;
+       int n2=40;
+       
+        Listadoblecircular add =new Listadoblecircular();
+       
+       
+    }   
 }
