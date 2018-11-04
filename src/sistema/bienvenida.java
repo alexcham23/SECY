@@ -115,8 +115,9 @@ public class bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
-       login fg =new login();
+       acceso fg =new acceso();
        fg.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_loginbuttonActionPerformed
 
     private void loginaboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginaboutActionPerformed

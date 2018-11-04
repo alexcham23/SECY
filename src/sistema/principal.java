@@ -5,49 +5,39 @@
  */
 package sistema;
 import lista_doble.Listadoblecircular;
-/**
+  /**
  *
  * @author james
  */
-/* public void guardar(){
-     
-         
-            if(container<usuarios.length){
-                String Name ="alejandro";
-                String Lastname="armira";
-                int edad=25;
-                int Id=201602983;
-                String Rol="Administrador";
-                String Nacionalidad = "Guatemala";
-                String Username= "admin";
-                String password =String.valueOf("201602983");
-                String email="alejoarmira@gmail.com";
-                
-               // JOptionPane.showMessageDialog(this,"El Usuario se ha registrado correctamente");
-                reger = new register(Name,Lastname,edad,Id,Rol,Nacionalidad,Username,password,email);
-                usuarios[container]=reger;
-                container++;
-            }
-            
-            // esto era para ver si en realidad esta guardando
-            for(int i=0;i<container;i++){
-                 System.out.println("el rol es "+usuarios[i].getRol()+" El Usuario es "+usuarios[i].getUsername());
-            }
-           
-        
-    }*/
 public class principal {
-  
+    public static Listadoblecircular add =new Listadoblecircular() ;
+
+  public void nose(){
+       String nombre="Jaime Amfra";
+       String nombre2="oscar corleto";
+       int n=21;
+       int n2=21;
+       String n3="40";
+     
+        String carnet="201602983";
+        int carnet2=201602982;
+        int dpi = 498850401;
+        String nombre3 = "antoino";
+        String nombre4 = "option65.la";
+        String nombre5 = "option65";
+                
+       add.ingresarNodo(carnet, dpi, nombre, nombre2, nombre3, dpi, nombre4);
+       // add.ingresarNodo(carnet2, dpi, nombre, nombre2, nombre3, dpi, nombre5);
+       // add.ingresarNodo(n2, dpi, nombre, nombre2, nombre3, dpi, nombre5);
+       add.mostrar();
+     //add.buscar(carnet);
+        
+  }
     public static void main(String[] args) {
         bienvenida fg =new bienvenida();
         fg.setVisible(true);
-       String nombre="Jaime Amira";
-       String nombre2="oscar corleto";
-       int n=21;
-       int n2=40;
-       
-        Listadoblecircular add =new Listadoblecircular();
-       
+        principal df=new principal();
+        df.nose();
        
     }   
 }
