@@ -10,8 +10,9 @@ import sistema.principal;
  * @author james
  */
 public class Listadoblecircular {
-    public static String carnet2;
-    public static String pass2,carnet3;
+   //
+    public static String pass2,dpis,carnet3,name,email,adress;
+    public static int creditos;
     Nodo primero;
     Nodo ultimo;
   
@@ -20,7 +21,7 @@ public class Listadoblecircular {
         ultimo=null;
     }
     
-    public void ingresarNodo(String carnet,int dpi, String nombre,String correo,String dirrecion,int credito,String password){
+    public void ingresarNodo(String carnet,String dpi, String nombre,String correo,String dirrecion,int credito,String password){
     Nodo nuevo =new Nodo();
     nuevo.carnet=carnet;
      nuevo.dpi=dpi;
@@ -66,10 +67,17 @@ public class Listadoblecircular {
         actual=primero  ;
         boolean bandera =false;
         do {
-            if(actual.carnet.equals(x)){
+            int dpi=Integer.parseInt(x);
+            if(actual.carnet.equals(x)||actual.dpi==x){
                 bandera=true;
                  pass2=actual.password;
              carnet3=String.valueOf(actual.carnet);
+             name=actual.Nombre;
+             dpis=actual.dpi;
+             email=actual.correo;
+             adress=actual.Dirreccion;
+             creditos=actual.credito;
+             
             } 
             actual=actual.siguiente;
         } while (actual!=primero);
@@ -93,19 +101,52 @@ public class Listadoblecircular {
         } while (actual!=primero);
         
     }
-    public void modificar(String name){
+    public void modificar(String carnet,String dpi, String nombre,String correo,String dirrecion,int credito,String password){
           
     Nodo actual =new Nodo();
     actual=primero;
         do {
-            if (actual.carnet==name ) {
+            if (actual.carnet.equals(carnet) ) {
                 
-                actual.carnet=name;
-                //actual.credito=edad;
+                actual.carnet=carnet;
+                actual.dpi=dpi;
+                actual.Nombre=nombre;
+                actual.correo=correo;
+                actual.Dirreccion=dirrecion;
+                actual.credito=credito;
+                actual.password=password;
             }
             actual=actual.siguiente;
             
         } while (actual!=primero);
+        
+    }
+    
+    public void eliminarnudo(String x){
+      Nodo actual =new Nodo();  
+      Nodo anterior =new Nodo();  
+      actual=primero;
+      anterior=ultimo;
+        do {
+            if(actual.carnet.equals(x)){
+                if (actual==primero) {
+                    primero=primero.siguiente;
+                    ultimo.siguiente=primero;
+                    primero.anterior=ultimo;
+                    
+                }else if(actual==ultimo){
+                    ultimo=anterior;
+                    primero.anterior=ultimo;
+                    ultimo.siguiente=primero;
+                }else{
+                    anterior.siguiente=actual.siguiente;
+                    actual.siguiente.anterior=anterior;
+                }
+            }
+            anterior=actual;
+         actual=actual.siguiente;   
+        } while (actual!=primero);
+        
         
     }
 }

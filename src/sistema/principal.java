@@ -13,20 +13,19 @@ public class principal {
     public static Listadoblecircular add =new Listadoblecircular() ;
 
   public void nose(){
-       String nombre="Jaime Amfra";
-       String nombre2="oscar corleto";
+       String nombre="Jaime Alejandro Armira";
+       String nombre2="alejandro.james.rock9999@gmail.com";
        int n=21;
        int n2=21;
-       String n3="40";
+       String n3="60";
      
         String carnet="201602983";
-        int carnet2=201602982;
-        int dpi = 498850401;
-        String nombre3 = "antoino";
+        String dpi = "176498850040A";
+        String nombre3 = "Col. San rafael zona 2, chimaltenango";
         String nombre4 = "option65.la";
         String nombre5 = "option65";
                 
-       add.ingresarNodo(carnet, dpi, nombre, nombre2, nombre3, dpi, nombre4);
+       add.ingresarNodo(carnet, dpi, nombre, nombre2, nombre3, n2, nombre4);
        // add.ingresarNodo(carnet2, dpi, nombre, nombre2, nombre3, dpi, nombre5);
        // add.ingresarNodo(n2, dpi, nombre, nombre2, nombre3, dpi, nombre5);
        add.mostrar();

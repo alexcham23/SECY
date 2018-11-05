@@ -9,7 +9,11 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import lista_doble.Listadoblecircular;
 import static lista_doble.Listadoblecircular.carnet3;
-//import static lista_doble.Listadoblecircular.carnet2;
+import static lista_doble.Listadoblecircular.adress;
+import static lista_doble.Listadoblecircular.name;
+import static lista_doble.Listadoblecircular.dpis;
+import static lista_doble.Listadoblecircular.creditos;
+import static lista_doble.Listadoblecircular.email;
 import static lista_doble.Listadoblecircular.pass2;
 import static sistema.principal.add;
 
@@ -17,12 +21,12 @@ import static sistema.principal.add;
  *
  * @author james
  */
-public class CrearStudent extends javax.swing.JFrame {
+public class ModiStudent extends javax.swing.JFrame {
 String carga;
     /**
      * Creates new form CrearStudent
      */
-    public CrearStudent() {
+    public ModiStudent() {
         initComponents();
         this.setLocationRelativeTo(null);
         radomalfanumerico();
@@ -51,11 +55,15 @@ String carga;
         textcredit = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        passtext = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        buscartxt = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         label1 = new javax.swing.JLabel();
-        label2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Crear Usuario");
+        setTitle("Modificar Usuario");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -106,12 +114,25 @@ String carga;
             }
         });
 
-        label1.setBackground(new java.awt.Color(204, 204, 204));
-        label1.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        label1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel7.setText("Password:");
 
-        label2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        label2.setForeground(new java.awt.Color(255, 51, 51));
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        buscartxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscartxtKeyTyped(evt);
+            }
+        });
+
+        jLabel8.setText("BUSCAR  CARNET/DPI:");
+
+        label1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        label1.setForeground(new java.awt.Color(102, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,43 +141,56 @@ String carga;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textcarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textdpi, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textcorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                                    .addComponent(textadress)
-                                    .addComponent(textcredit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textadress, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textcredit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(passtext, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(53, 53, 53)
-                                .addComponent(jButton2)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textcarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textdpi, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jButton1)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton2)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textcarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -172,22 +206,24 @@ String carga;
                     .addComponent(jLabel4)
                     .addComponent(textcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textadress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(textadress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(textcredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(passtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(34, 34, 34))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -198,7 +234,7 @@ limpiar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   revisar();
+   revisar2();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -207,22 +243,33 @@ limpiar();
       this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
 
-    private void textcarnetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcarnetKeyTyped
- char c;
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      revisar();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void buscartxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartxtKeyTyped
+        char c;
         c = evt.getKeyChar();
         
-        if (c<'0'||c>'9') evt.consume();        
+        if (c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_buscartxtKeyTyped
+
+    private void textcarnetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcarnetKeyTyped
+     char c;
+        c = evt.getKeyChar();
+        
+        if (c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_textcarnetKeyTyped
 
     private void textdpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textdpiKeyTyped
-        char c;
+      char c;
         c = evt.getKeyChar();
         
         if (c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_textdpiKeyTyped
 
     private void textcreditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcreditKeyTyped
-      char c;
+        char c;
         c = evt.getKeyChar();
         
         if (c<'0'||c>'9') evt.consume();
@@ -255,11 +302,14 @@ limpiar();
         }
     }
     public void revisar(){
-         if(textcarnet.getText().equals("")||textdpi.getText().equals("")||txtnombre.getText().equals("")
-             ||textcorreo.getText().equals("")||textadress.getText().equals("")||textcredit.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"por favor llene todas las casillas");
-        }else{
-             String verificar=textcarnet.getText();
+            //String fg=buscartxt.getText();
+       
+                      
+      
+         if(buscartxt.getText().equals("")){
+              JOptionPane.showMessageDialog(null,"por favor llene la casilla");
+           }else{       
+               String verificar=buscartxt.getText();
              ingresar(verificar);
          }
          
@@ -270,14 +320,30 @@ limpiar();
         add.buscar2(y);
        
         //String pass = String.valueOf(passtext.getPassword());
-       
-        if(textcarnet.getText().equals(carnet3)){
-            JOptionPane.showMessageDialog(null, "El usuario ya existe");
+      // int dop=Integer.parseInt(textcarnet.getText());
+        if(buscartxt.getText().equals(carnet3)||buscartxt.getText().equals(dpis)){
+             textcarnet.setText(carnet3);
+            textdpi.setText(dpis);
+            txtnombre.setText(name);
+            textcorreo.setText(email);
+            textadress.setText(adress);
+            textcredit.setText(String.valueOf(creditos));
+            passtext.setText(pass2);
+            buscartxt.setText("");
+            
         } else {
-      
-             guardar();
+           JOptionPane.showMessageDialog(null, "El usuario No existe");
         }
     
+    }
+    public void revisar2(){
+         if(textcarnet.getText().equals("")||textdpi.getText().equals("")||txtnombre.getText().equals("")
+             ||textcorreo.getText().equals("")||textadress.getText().equals("")||textcredit.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"por favor llene todas las casillas");
+        }else{
+             guardar();
+         }
+         
     }
     public void guardar(){
         String carnet=textcarnet.getText();
@@ -286,15 +352,15 @@ limpiar();
         String correo =textcorreo.getText();
         String dirrecion=textadress.getText();
         int creditos =Integer.parseInt(textcredit.getText());
+        String password=passtext.getText();
         
         
        
-            radomalfanumerico();
-            String password=carnet+carga;
-        add.ingresarNodo(carnet, dpi, nombre, correo, dirrecion, creditos, password);
+            
+        add.modificar(carnet, dpi, nombre, correo, dirrecion, creditos, password);
         
-        label1.setText("SE GUARDO EXITOSAMENTE...TU CONTRASEÑA ES:");
-        label2.setText(password);
+      label1.setText("SE HA MODIFICADO EXITOSAMENTE");
+//        label2.setText(password);
         add.mostrar();
                     
     }
@@ -305,8 +371,9 @@ limpiar();
         textcorreo.setText("");
         textadress.setText("");
         textcredit.setText("");
+        passtext.setText("");
         label1.setText("");
-        label2.setText("");
+  //      label2.setText("");
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -322,35 +389,40 @@ limpiar();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModiStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModiStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModiStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModiStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CrearStudent().setVisible(true);
+                new ModiStudent().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscartxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel label1;
-    private javax.swing.JLabel label2;
+    private javax.swing.JTextField passtext;
     private javax.swing.JTextField textadress;
     private javax.swing.JTextField textcarnet;
     private javax.swing.JTextField textcorreo;

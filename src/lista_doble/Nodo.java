@@ -11,7 +11,7 @@ package lista_doble;
  */
 public class Nodo {
     String carnet;
-    int dpi;
+    String dpi;
     String Nombre;
     String correo;
     String Dirreccion;
