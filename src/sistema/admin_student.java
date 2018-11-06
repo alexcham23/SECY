@@ -30,8 +30,8 @@ public class admin_student extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        VERBUTON = new javax.swing.JButton();
+        ERASERbuton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -57,12 +57,17 @@ public class admin_student extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Visualizar");
-
-        jButton4.setText("Eliminar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        VERBUTON.setText("Visualizar");
+        VERBUTON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                VERBUTONActionPerformed(evt);
+            }
+        });
+
+        ERASERbuton.setText("Eliminar");
+        ERASERbuton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ERASERbutonActionPerformed(evt);
             }
         });
 
@@ -78,9 +83,9 @@ public class admin_student extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(VERBUTON)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
+                        .addComponent(ERASERbuton)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,8 +97,8 @@ public class admin_student extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(VERBUTON)
+                    .addComponent(ERASERbuton))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -106,9 +111,11 @@ public class admin_student extends javax.swing.JFrame {
       this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void ERASERbutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ERASERbutonActionPerformed
+     EliminaStudent df=new EliminaStudent();
+     df.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_ERASERbutonActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     
@@ -118,14 +125,20 @@ public class admin_student extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        CrearStudent gh=new CrearStudent();
        gh.setVisible(true);
-      dispose();
+      this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
          acceso fr =new acceso();
      fr.setVisible(true);
-        dispose();
+       this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
+
+    private void VERBUTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VERBUTONActionPerformed
+       VisualizarStudent dg = new VisualizarStudent();
+       dg.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_VERBUTONActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,9 +176,9 @@ public class admin_student extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ERASERbuton;
+    private javax.swing.JButton VERBUTON;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables
 }

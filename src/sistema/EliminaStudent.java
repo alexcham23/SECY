@@ -53,11 +53,11 @@ String carga;
         textadress = new javax.swing.JTextField();
         textcorreo = new javax.swing.JTextField();
         textcredit = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        eraserbutton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         passtext = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        BUSCABUTON = new javax.swing.JButton();
         buscartxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         label1 = new javax.swing.JLabel();
@@ -100,10 +100,10 @@ String carga;
             }
         });
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        eraserbutton.setText("Eliminar");
+        eraserbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                eraserbuttonActionPerformed(evt);
             }
         });
 
@@ -116,10 +116,10 @@ String carga;
 
         jLabel7.setText("Password:");
 
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BUSCABUTON.setText("Buscar");
+        BUSCABUTON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BUSCABUTONActionPerformed(evt);
             }
         });
 
@@ -161,7 +161,7 @@ String carga;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3))
+                                .addComponent(BUSCABUTON))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -176,7 +176,7 @@ String carga;
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(145, 145, 145)
-                        .addComponent(jButton1)
+                        .addComponent(eraserbutton)
                         .addGap(53, 53, 53)
                         .addComponent(jButton2)))
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -186,7 +186,7 @@ String carga;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(104, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(BUSCABUTON)
                     .addComponent(buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
@@ -221,7 +221,7 @@ String carga;
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(eraserbutton)
                     .addComponent(jButton2))
                 .addGap(19, 19, 19))
         );
@@ -233,19 +233,15 @@ String carga;
 limpiar();       
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   revisar2();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
       menuadmin df=new menuadmin();
       df.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BUSCABUTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUSCABUTONActionPerformed
       revisar();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BUSCABUTONActionPerformed
 
     private void buscartxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartxtKeyTyped
         char c;
@@ -274,6 +270,10 @@ limpiar();
         
         if (c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_textcreditKeyTyped
+
+    private void eraserbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eraserbuttonActionPerformed
+        revisar2();
+    }//GEN-LAST:event_eraserbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,6 +311,7 @@ limpiar();
            }else{       
                String verificar=buscartxt.getText();
              ingresar(verificar);
+             label1.setText("");
          }
          
     }    
@@ -341,27 +342,27 @@ limpiar();
              ||textcorreo.getText().equals("")||textadress.getText().equals("")||textcredit.getText().equals("")){
             JOptionPane.showMessageDialog(null,"por favor llene todas las casillas");
         }else{
-             guardar();
+             String verificar=textcarnet.getText();
+             eliminar(verificar);
          }
          
     }
-    public void guardar(){
-        String carnet=textcarnet.getText();
-        String dpi=textdpi.getText();
-        String nombre = txtnombre.getText();
-        String correo =textcorreo.getText();
-        String dirrecion=textadress.getText();
-        int creditos =Integer.parseInt(textcredit.getText());
-        String password=passtext.getText();
-        
-        
+    public void eliminar(String e){
        
-            
-        add.modificar(carnet, dpi, nombre, correo, dirrecion, creditos, password);
+        add.eliminarnudo(e);
         
-      label1.setText("SE HA MODIFICADO EXITOSAMENTE");
+      label1.setText("SE HA ELIMINADO EXITOSAMENTE");
+      carnet3="";
+      
+       textcarnet.setText("");
+        textdpi.setText("");
+        txtnombre.setText("");
+        textcorreo.setText("");
+        textadress.setText("");
+        textcredit.setText("");
+        passtext.setText("");
 //        label2.setText(password);
-        add.mostrar();
+      //  add.mostrar();
                     
     }
     public void limpiar(){
@@ -411,10 +412,10 @@ limpiar();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BUSCABUTON;
     private javax.swing.JTextField buscartxt;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton eraserbutton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

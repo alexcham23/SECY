@@ -5,6 +5,7 @@
  */
 package lista_doble;
 import sistema.principal;
+import static sistema.VisualizarStudent.model;
 /**
  *
  * @author james
@@ -67,7 +68,7 @@ public class Listadoblecircular {
         actual=primero  ;
         boolean bandera =false;
         do {
-            int dpi=Integer.parseInt(x);
+            //int dpi=Integer.parseInt(x);
             if(actual.carnet.equals(x)||actual.dpi==x){
                 bandera=true;
                  pass2=actual.password;
@@ -95,8 +96,18 @@ public class Listadoblecircular {
        Nodo actual= new Nodo();
        actual=primero;
         do {
-            System.out.println(actual.Nombre);
-            System.out.println(actual.carnet);
+            System.out.println(actual.carnet+" , "+actual.dpi+" , "+actual.password);
+            actual=actual.siguiente;
+        } while (actual!=primero);
+        
+    }
+    public void mostrar2(){
+       Nodo actual= new Nodo();
+       actual=primero;
+        do {
+             model.insertRow(model.getRowCount(),new Object[] {
+                    actual.carnet,actual.dpi,actual.Nombre,actual.correo,
+                 actual.Dirreccion,actual.credito,actual.password});
             actual=actual.siguiente;
         } while (actual!=primero);
         

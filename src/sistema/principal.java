@@ -20,7 +20,7 @@ public class principal {
        String n3="60";
      
         String carnet="201602983";
-        String dpi = "176498850040A";
+        String dpi = "1764988500401";
         String nombre3 = "Col. San rafael zona 2, chimaltenango";
         String nombre4 = "option65.la";
         String nombre5 = "option65";
