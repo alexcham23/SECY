@@ -9,6 +9,10 @@ import lista_doble.Listadoblecircular;
 import static lista_doble.Listadoblecircular.carnet3;
 import static lista_doble.Listadoblecircular.pass2;
 import static sistema.principal.add;
+import static sistema.principal.pila;
+import static sistema.Crearcatedratico.carnetp;
+import static sistema.Crearcatedratico.passp;
+
 
 /**
  *
@@ -139,7 +143,7 @@ public class acceso extends javax.swing.JFrame {
      }else if(usertext.getText().equals(User)&& pass.equals(Password)){
             menuadmin D = new menuadmin ();
             D.setVisible(true);
-            dispose();
+            this.setVisible(false);
             }else{
          String user2=usertext.getText();
          ingresar(user2);
@@ -153,12 +157,18 @@ public class acceso extends javax.swing.JFrame {
                
        
         add.buscar2(y);
+        pila.pilabuscar(y);
        
         String pass = String.valueOf(passtext.getPassword());
         if(usertext.getText().equals(carnet3)&&pass.equals(pass2)){
             menu_student gh=new menu_student();
             gh.setVisible(true);
-        } else{
+             this.setVisible(false);
+        }else if (usertext.getText().equals(carnetp)&&pass.equals(passp)) {
+            menu_maestro fg=new menu_maestro();
+            fg.setVisible(true);
+             this.setVisible(false);
+        }else{
                 JOptionPane.showMessageDialog(null, "El usuario/ contraseña no existe");
                 }
     

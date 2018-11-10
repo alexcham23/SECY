@@ -4,13 +4,20 @@
  * and open the template in the editor.
  */
 package PILA;
+import static sistema.Crearcatedratico.adressp;
+import static sistema.Crearcatedratico.carnetp;
+import static sistema.Crearcatedratico.cursop;
+import static sistema.Crearcatedratico.emailp;
+import static sistema.Crearcatedratico.namep;
+import static sistema.Crearcatedratico.passp;
+import static sistema.Visualizarcatedratico.model;
 
 /**
  *
  * @author james
  */
 public class Pila {
-  public static String carnetp,namep,cursop,adressp,emailp,passp;  
+  //public static String carnetp,namep,cursop,adressp,emailp,passp;  
     Nodo primero;
     
     public Pila(){
@@ -46,15 +53,19 @@ public class Pila {
              emailp=buscar.Email;
              passp=buscar.Password;
                 bandera=true;
+                System.out.println("informacion encontrada");
+                System.out.println(carnetp+" , "+namep+" , "+cursop+" , "+adressp+" , "+emailp+" , "+passp);
             }
+            buscar=buscar.siguiente; 
         }    
-         buscar=buscar.siguiente;   
-        }
-        if(bandera=false){
+           if(!bandera){
             System.out.println("El nudo no existe");
+           }
         }else{
             System.out.println("La pila esta vacia");
         }
+        
+        
     }
 public void modipila(String carnet,String nombre,String curso,String adress,
             String mail,String password){
@@ -75,11 +86,11 @@ public void modipila(String carnet,String nombre,String curso,String adress,
              bandera=true;
                
             }
+         buscar=buscar.siguiente; 
         }    
-         buscar=buscar.siguiente;   
-        }
-        if(bandera=false){
+           if(!bandera){
             System.out.println("El nudo no existe");
+           }
         }else{
             System.out.println("La pila esta vacia");
         }
@@ -100,16 +111,16 @@ public void modipila(String carnet,String nombre,String curso,String adress,
                    primero=primero.siguiente;///aqui estoy diciendo que ya no apute al siguiente si no al que le sigue
                }else{
                    anterior.siguiente=buscar.siguiente;
-                   
-               }
+                   }
                 bandera=true;
             }
-        }    
             anterior=buscar;
-         buscar=buscar.siguiente;   
-        }
-        if(bandera=false){
+          buscar=buscar.siguiente; 
+        }    
+           if(!bandera){
             System.out.println("El nudo no existe");
+            
+           }
         }else{
             System.out.println("La pila esta vacia");
         }
@@ -120,7 +131,10 @@ public void modipila(String carnet,String nombre,String curso,String adress,
      actual=primero;
      if (primero!=null) {
          while(actual!=null){
-             System.out.println(actual.carnet+" , "+actual.nombre+" , "+actual.Curso+" , "+actual.adress+" , "+actual.Email+" , "+actual.Password);
+              model.insertRow(model.getRowCount(),new Object[] {
+                    actual.carnet,actual.nombre,actual.Curso,actual.adress,
+                 actual.Email,actual.Password});
+            // System.out.println(actual.carnet+" , "+actual.nombre+" , "+actual.Curso+" , "+actual.adress+" , "+actual.Email+" , "+actual.Password);
          actual=actual.siguiente;
          }
      }else{ 
