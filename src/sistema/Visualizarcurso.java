@@ -6,21 +6,21 @@
 package sistema;
 
 import javax.swing.table.DefaultTableModel;
-import static sistema.principal.pila;
+import static sistema.principal.lista;
 /**
  *
  * @author james
  */
-public class Visualizarcatedratico extends javax.swing.JFrame {
+public class Visualizarcurso extends javax.swing.JFrame {
 public static DefaultTableModel model;
     /**
      * Creates new form VisualizarStudent
      */
-    public Visualizarcatedratico() {
+    public Visualizarcurso() {
         initComponents();
         this.setLocationRelativeTo(null);
         model= (DefaultTableModel)table1.getModel();
-       pila.mostrarpila();
+       lista.mostrarlista2();
     }
 /*private void agregarDatos(){
 
@@ -57,11 +57,11 @@ add.mostrar();
 
             },
             new String [] {
-                "Registro", "Nombre ", "Curso", "Dirreccion", "Correo", "Contraseña"
+                "No. de Curso", "Nombre del Curso", "Catedratico", "Credito", "Laboratorio S/N", "Pre_requisito", "Post_requisito"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -113,21 +113,23 @@ add.mostrar();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Visualizarcatedratico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualizarcurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Visualizarcatedratico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualizarcurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Visualizarcatedratico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualizarcurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Visualizarcatedratico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualizarcurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Visualizarcatedratico().setVisible(true);
+                new Visualizarcurso().setVisible(true);
             }
         });
     }

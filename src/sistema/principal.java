@@ -6,14 +6,33 @@
 package sistema;
 import lista_doble.Listadoblecircular;
 import PILA.Pila;
+import lista_simple.Listasimplecircular;
+import static lista_simple.Listasimplecircular.num2;
+
   /**
  *
  * @author james
  */
 public class principal {
     public static Listadoblecircular add =new Listadoblecircular() ;
+    public static Listasimplecircular lista=new Listasimplecircular();
     public static Pila pila= new Pila();
-    
+    public void curso(){
+        String numero="00256";
+        String nombre="matematica basica 1";
+        String catedratico= "Jose Manuel";
+        int Creditos =5;
+        String laboratorio="Si";
+        String prerequisito="nose";
+        String postrequisito="nose";
+        String numero2="0003";
+        lista.insertar(numero, nombre, catedratico, Creditos, laboratorio, prerequisito, postrequisito);
+        lista.insertar(numero2, nombre, catedratico, Creditos, laboratorio, prerequisito, postrequisito);
+        lista.mostrarlista();
+        lista.buscar3(numero2);
+      
+        
+    }
     public void mestro(){
         String carnet ="201800010";
         String carnet2 ="201800011";
@@ -24,7 +43,7 @@ public class principal {
         String password="option65";
         pila.push(carnet, Nombre, curso,Dirrecion, email, password);
         pila.push(carnet2, Nombre, curso,Dirrecion, email, password);
-        pila.mostrarpila();
+        //pila.mostrarpila();
         pila.pilabuscar(carnet);
     }
   public void nose(){
@@ -53,5 +72,6 @@ public class principal {
         principal df=new principal();
         df.nose();
        df.mestro();
+       df.curso();
     }   
 }

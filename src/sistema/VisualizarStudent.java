@@ -97,9 +97,9 @@ add.mostrar();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       acceso fr =new acceso();
-     fr.setVisible(true);
-       this.setVisible(false);
+        admin_curso df = new admin_curso();
+        df.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
 
     /**

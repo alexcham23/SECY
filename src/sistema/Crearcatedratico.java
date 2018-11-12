@@ -187,7 +187,7 @@ limpiar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      menuadmin df=new menuadmin();
+      admin_catedratico df=new admin_catedratico();
       df.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing

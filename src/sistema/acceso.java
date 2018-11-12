@@ -26,7 +26,7 @@ public class acceso extends javax.swing.JFrame {
      */
     public acceso() {
         initComponents();
-         
+         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -46,9 +46,13 @@ public class acceso extends javax.swing.JFrame {
         passtext = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -117,7 +121,7 @@ public class acceso extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         bienvenida fr=new bienvenida();
         fr.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -130,6 +134,12 @@ public class acceso extends javax.swing.JFrame {
            revisar1();
           
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        bienvenida fr = new bienvenida();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_formWindowClosing
  public void revisar1(){
       String User = "ADMIN";
         String ID = "admin";
