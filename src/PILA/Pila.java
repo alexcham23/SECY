@@ -6,11 +6,12 @@
 package PILA;
 import static sistema.Crearcatedratico.adressp;
 import static sistema.Crearcatedratico.carnetp;
-import static sistema.Crearcatedratico.cursop;
+//import static sistema.Crearcatedratico.cursop;
 import static sistema.Crearcatedratico.emailp;
 import static sistema.Crearcatedratico.namep;
 import static sistema.Crearcatedratico.passp;
 import static sistema.Visualizarcatedratico.model;
+import static sistema.Masivacatedratico.model1;
 
 /**
  *
@@ -24,12 +25,12 @@ public class Pila {
         primero=null;
        
     }
-    public void push(String carnet,String nombre,String curso,String adress,
+    public void push(String carnet,String nombre,String adress,
             String mail,String password){
      Nodo pila=new Nodo();
      pila.carnet=carnet;
      pila.nombre=nombre;
-     pila.Curso=curso;
+    // pila.Curso=curso;
      pila.adress=adress;
      pila.Email=mail;
      pila.Password=password;
@@ -48,13 +49,13 @@ public class Pila {
             if(buscar.carnet.equals(carnet)){
              carnetp=buscar.carnet;
              namep=buscar.nombre;
-             cursop=buscar.Curso;
+             //cursop=buscar.Curso;
              adressp=buscar.adress;
              emailp=buscar.Email;
              passp=buscar.Password;
                 bandera=true;
                 System.out.println("informacion encontrada");
-                System.out.println(carnetp+" , "+namep+" , "+cursop+" , "+adressp+" , "+emailp+" , "+passp);
+                System.out.println(carnetp+" , "+namep+" , "+adressp+" , "+emailp+" , "+passp);
             }
             buscar=buscar.siguiente; 
         }    
@@ -67,7 +68,7 @@ public class Pila {
         
         
     }
-public void modipila(String carnet,String nombre,String curso,String adress,
+public void modipila(String carnet,String nombre,String adress,
             String mail,String password){
     Nodo buscar =new Nodo();
         buscar=primero;
@@ -78,7 +79,7 @@ public void modipila(String carnet,String nombre,String curso,String adress,
             if(buscar.carnet.equals(carnet)){
             buscar.carnet=carnet;
              buscar.nombre=nombre;
-             buscar.Curso=curso;
+             //buscar.Curso=curso;
              buscar.adress=adress;
              buscar.Email=mail;
              buscar.Password=password;
@@ -132,7 +133,23 @@ public void modipila(String carnet,String nombre,String curso,String adress,
      if (primero!=null) {
          while(actual!=null){
               model.insertRow(model.getRowCount(),new Object[] {
-                    actual.carnet,actual.nombre,actual.Curso,actual.adress,
+                    actual.carnet,actual.nombre,actual.adress,
+                 actual.Email,actual.Password});
+            // System.out.println(actual.carnet+" , "+actual.nombre+" , "+actual.Curso+" , "+actual.adress+" , "+actual.Email+" , "+actual.Password);
+         actual=actual.siguiente;
+         }
+     }else{ 
+         System.out.println("\nLa pila esta vacia\n"); 
+     }
+ }
+ 
+ public void mostrarpila3(){
+     Nodo actual= new Nodo();
+     actual=primero;
+     if (primero!=null) {
+         while(actual!=null){
+              model1.insertRow(model1.getRowCount(),new Object[] {
+                    actual.carnet,actual.nombre,actual.adress,
                  actual.Email,actual.Password});
             // System.out.println(actual.carnet+" , "+actual.nombre+" , "+actual.Curso+" , "+actual.adress+" , "+actual.Email+" , "+actual.Password);
          actual=actual.siguiente;

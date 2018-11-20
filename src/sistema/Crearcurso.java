@@ -14,6 +14,7 @@ import static lista_simple.Listasimplecircular.lab;
 import static lista_simple.Listasimplecircular.namec;
 import static lista_simple.Listasimplecircular.post;
 import static lista_simple.Listasimplecircular.pre;
+import static lista_simple.Listasimplecircular.seccion1;
 import static sistema.principal.lista;
 
 /**
@@ -54,6 +55,8 @@ public class Crearcurso extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
         limpiar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        textseccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Crear Curso");
@@ -74,7 +77,18 @@ public class Crearcurso extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del Curso:");
 
-        jLabel3.setText("Catedratic@:");
+        jLabel3.setText("Codigo Catedratic@:");
+
+        textcate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textcateActionPerformed(evt);
+            }
+        });
+        textcate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textcateKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Creditos:");
 
@@ -91,7 +105,7 @@ public class Crearcurso extends javax.swing.JFrame {
 
         jLabel5.setText("Laboratorio S/N:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Si", "No" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "S", "N" }));
 
         jLabel6.setText("Pre_requisito:");
 
@@ -119,6 +133,8 @@ public class Crearcurso extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Seccion:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,12 +146,13 @@ public class Crearcurso extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(59, 59, 59)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -146,13 +163,14 @@ public class Crearcurso extends javax.swing.JFrame {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textpre)
                                 .addComponent(textpost)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addComponent(textseccion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(guardar)
                         .addGap(89, 89, 89)
                         .addComponent(limpiar)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +207,11 @@ public class Crearcurso extends javax.swing.JFrame {
                     .addComponent(textpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(textseccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(limpiar))
@@ -234,11 +256,24 @@ public class Crearcurso extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_textcreditoKeyTyped
+
+    private void textcateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textcateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textcateActionPerformed
+
+    private void textcateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcateKeyTyped
+         char c;
+        c = evt.getKeyChar();
+
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textcateKeyTyped
     public void revisar() {
 
-        System.out.println(num2 + "");
+       // System.out.println(num2 + "");
         if (textnum.getText().equals("") || textname.getText().equals("") || textcate.getText().equals("")
-                || textcredito.getText().equals("")) {
+                || textcredito.getText().equals("")||textseccion.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "por favor llene todas las casillas");
         } else if (jComboBox1.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "por favor seleccione Si o No, en el area de laboratorio  ");
@@ -270,10 +305,11 @@ public class Crearcurso extends javax.swing.JFrame {
         String laboratorio = jComboBox1.getSelectedItem().toString();
         String pre = textpre.getText();
         String post = textpost.getText();
+        String seccion=textseccion.getText();
 
         //radomalfanumerico();
         // String password=carnet+carga;
-        lista.insertar(carnet, name, catedratico, credito, laboratorio, pre, post);
+        lista.insertar(carnet, name, catedratico, credito, laboratorio, pre, post,seccion);
 
         //label1.setText("SE GUARDO EXITOSAMENTE...TU CONTRASEÑA ES:");
         //label2.setText(password);
@@ -288,6 +324,7 @@ public class Crearcurso extends javax.swing.JFrame {
         jComboBox1.setSelectedIndex(0);
         textpre.setText("");
         textpost.setText("");
+        textseccion.setText("");
     }
 
     /**
@@ -329,6 +366,7 @@ public class Crearcurso extends javax.swing.JFrame {
     private javax.swing.JButton guardar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -344,5 +382,6 @@ public class Crearcurso extends javax.swing.JFrame {
     private javax.swing.JTextField textnum;
     private javax.swing.JTextField textpost;
     private javax.swing.JTextField textpre;
+    private javax.swing.JTextField textseccion;
     // End of variables declaration//GEN-END:variables
 }

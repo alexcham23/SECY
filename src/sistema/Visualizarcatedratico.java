@@ -57,11 +57,11 @@ add.mostrar();
 
             },
             new String [] {
-                "Registro", "Nombre ", "Curso", "Dirreccion", "Correo", "Contraseña"
+                "Registro", "Nombre ", "Dirreccion", "Correo", "Contraseña"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -91,7 +91,7 @@ add.mostrar();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        admin_curso df = new admin_curso();
+        admin_catedratico df = new admin_catedratico();
         df.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing

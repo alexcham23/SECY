@@ -5,6 +5,7 @@
  */
 package sistema;
 import lista_doble.Listadoblecircular;
+
 import PILA.Pila;
 import lista_simple.Listasimplecircular;
 import static lista_simple.Listasimplecircular.num2;
@@ -17,17 +18,20 @@ public class principal {
     public static Listadoblecircular add =new Listadoblecircular() ;
     public static Listasimplecircular lista=new Listasimplecircular();
     public static Pila pila= new Pila();
+ 
     public void curso(){
         String numero="00256";
         String nombre="matematica basica 1";
-        String catedratico= "Jose Manuel";
+        String catedratico= "201002983";
         int Creditos =5;
-        String laboratorio="Si";
+        String laboratorio="S";
         String prerequisito="nose";
         String postrequisito="nose";
         String numero2="0003";
-        lista.insertar(numero, nombre, catedratico, Creditos, laboratorio, prerequisito, postrequisito);
-        lista.insertar(numero2, nombre, catedratico, Creditos, laboratorio, prerequisito, postrequisito);
+        String seccion="D";
+        String seccion3="A";
+        lista.insertar(numero, nombre, catedratico, Creditos, laboratorio, prerequisito, postrequisito,seccion);
+        lista.insertar("201002", "social humanistica", catedratico, Creditos, "N", prerequisito, postrequisito,seccion3);
         lista.mostrarlista();
         lista.buscar3(numero2);
       
@@ -35,14 +39,14 @@ public class principal {
     }
     public void mestro(){
         String carnet ="201800010";
-        String carnet2 ="201800011";
+        String carnet2 ="201002983";
         String Nombre ="Fernando Garcia";
         String curso="Fisica Basica";
         String Dirrecion="9na Ave. 2-17 zona9";
         String email="fernandogarcia@gmai.com";
         String password="option65";
-        pila.push(carnet, Nombre, curso,Dirrecion, email, password);
-        pila.push(carnet2, Nombre, curso,Dirrecion, email, password);
+        pila.push(carnet, Nombre,Dirrecion, email, password);
+        pila.push(carnet2, Nombre,Dirrecion, email, password);
         //pila.mostrarpila();
         pila.pilabuscar(carnet);
     }
@@ -67,11 +71,13 @@ public class principal {
        
   }
     public static void main(String[] args) {
+        
         bienvenida fg =new bienvenida();
         fg.setVisible(true);
         principal df=new principal();
         df.nose();
        df.mestro();
        df.curso();
+       
     }   
 }

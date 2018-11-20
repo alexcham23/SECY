@@ -202,7 +202,7 @@ limpiar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      menuadmin df=new menuadmin();
+      admin_student df=new admin_student();
       df.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing

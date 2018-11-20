@@ -12,7 +12,7 @@ package PILA;
 public class Nodo {
     String carnet;
     String nombre;
-    String Curso;
+  //  String Curso;
     String adress;
     String Email;
     String Password;

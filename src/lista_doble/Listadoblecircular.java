@@ -7,6 +7,7 @@ package lista_doble;
 
 import sistema.principal;
 import static sistema.VisualizarStudent.model;
+import static sistema.MasivaStudent.model1;
 
 /**
  *
@@ -119,7 +120,18 @@ public class Listadoblecircular {
         } while (actual != primero);
 
     }
+    
+    public void mostrar3() {
+        Nodo actual = new Nodo();
+        actual = primero;
+        do {
+            model1.insertRow(model1.getRowCount(), new Object[]{
+                actual.carnet, actual.dpi, actual.Nombre, actual.correo,
+                actual.Dirreccion, actual.credito, actual.password});
+            actual = actual.siguiente;
+        } while (actual != primero);
 
+    }
     public void modificar(String carnet, String dpi, String nombre, String correo, String dirrecion, int credito, String password) {
 
         Nodo actual = new Nodo();
@@ -140,7 +152,22 @@ public class Listadoblecircular {
         } while (actual != primero);
 
     }
+    public void modificarcreditos(String carnet,int credito) {
 
+        Nodo actual = new Nodo();
+        actual = primero;
+        do {
+            if (actual.carnet.equals(carnet)) {
+
+                
+                actual.credito = actual.credito + credito;
+                
+            }
+            actual = actual.siguiente;
+
+        } while (actual != primero);
+
+    }
     public void eliminarnudo(String x) {
         Nodo actual = new Nodo();
         Nodo anterior = new Nodo();

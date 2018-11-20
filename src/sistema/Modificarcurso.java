@@ -13,6 +13,7 @@ import static lista_simple.Listasimplecircular.lab;
 import static lista_simple.Listasimplecircular.namec;
 import static lista_simple.Listasimplecircular.post;
 import static lista_simple.Listasimplecircular.pre;
+import static lista_simple.Listasimplecircular.seccion1;
 import static sistema.principal.lista;
 /**
  *
@@ -50,6 +51,8 @@ public class Modificarcurso extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         buscartext = new javax.swing.JTextField();
         buscarbutton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        textseccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Curso");
@@ -64,7 +67,13 @@ public class Modificarcurso extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del Curso:");
 
-        jLabel3.setText("Catedratic@:");
+        jLabel3.setText("Codigo Catedratic@:");
+
+        textcate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textcateKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Creditos:");
 
@@ -81,7 +90,7 @@ public class Modificarcurso extends javax.swing.JFrame {
 
         jLabel5.setText("Laboratorio S/N:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Si", "No" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "S", "N" }));
 
         jLabel6.setText("Pre_requisito:");
 
@@ -125,6 +134,8 @@ public class Modificarcurso extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setText("Seccion:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,30 +151,35 @@ public class Modificarcurso extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addComponent(jLabel3)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel6)
-                                .addComponent(jLabel8)))
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textnum)
-                                .addComponent(textname)
-                                .addComponent(textcate, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                .addComponent(textcredito, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textpre)
-                                .addComponent(textpost)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buscartext, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                                .addComponent(buscarbutton)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(buscarbutton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(textnum)
+                                        .addComponent(textname)
+                                        .addComponent(textcate, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                        .addComponent(textcredito, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textpre)
+                                        .addComponent(textpost)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                                    .addComponent(textseccion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
@@ -206,7 +222,11 @@ public class Modificarcurso extends javax.swing.JFrame {
                     .addComponent(textpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(textseccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(limpiar))
@@ -251,6 +271,15 @@ revisar2();        // TODO add your handling code here:
         
         if (c<'0'||c>'9') evt.consume(); 
     }//GEN-LAST:event_textcreditoKeyTyped
+
+    private void textcateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcateKeyTyped
+    char c;
+        c = evt.getKeyChar();
+
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textcateKeyTyped
  
     public void revisar(){
          
@@ -289,8 +318,9 @@ revisar2();        // TODO add your handling code here:
         String laboratorio = jComboBox1.getSelectedItem().toString();
         String pre = textpre.getText();
         String post = textpost.getText();
+        String seccion=textseccion.getText();
 
-        lista.modificar(carnet, name, catedratico, credito, laboratorio, pre, post);
+        lista.modificar(carnet, name, catedratico, credito, laboratorio, pre, post,seccion);
         
     }
     public void limpiar() {
@@ -301,6 +331,7 @@ revisar2();        // TODO add your handling code here:
         jComboBox1.setSelectedIndex(0);
         textpre.setText("");
         textpost.setText("");
+        textseccion.setText("");
     }
 
     public void revisar2() {
@@ -322,6 +353,7 @@ revisar2();        // TODO add your handling code here:
             textpre.setText(pre);
             jComboBox1.setSelectedItem(lab);
             textcredito.setText(Integer.toString(credit));
+            textseccion.setText(seccion1);
             buscartext.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "El curso No existe");
@@ -373,6 +405,7 @@ revisar2();        // TODO add your handling code here:
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -388,5 +421,6 @@ revisar2();        // TODO add your handling code here:
     private javax.swing.JTextField textnum;
     private javax.swing.JTextField textpost;
     private javax.swing.JTextField textpre;
+    private javax.swing.JTextField textseccion;
     // End of variables declaration//GEN-END:variables
 }
